@@ -1,10 +1,13 @@
-import Header from "@/components/Header";
-
-export default function Home() {
+import React from 'react'
+import Header from '@/components/Header'
+import Hero from '@/components/Hero'
+const main = () => {
   return (
-    <main>
-      <Header/>
-    </main>
-  );
+   <main>
+    <Header/>
+    <Hero/>
+   </main>
+)
 }
 
+export default main
