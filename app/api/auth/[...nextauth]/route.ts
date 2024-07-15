@@ -1,16 +1,21 @@
 import NextAuth from "next-auth"
 import CredentialsProvider from 'next-auth/providers/credentials';
+import client from "@/db"
 
 const handler = NextAuth({
   providers: [
     CredentialsProvider({
         name: 'Credentials',
         credentials: {
-          username: { label: 'email', type: 'text', placeholder: '' },
-          password: { label: 'password', type: 'password', placeholder: '' },
+          username: { label: 'Username', type: 'text', placeholder: 'Enter the username..',required: true},
+          email: { label: 'Email', type: 'email', placeholder: 'Enter the email..',required: true},
+          password: { label: 'Password', type: 'password', placeholder: 'Enter the password',required: true},
+         
         },
         async authorize(credentials: any) {
-            console.log(credentials)
+          console.log('Username:', credentials.username);
+          console.log('Email:', credentials.email);
+          console.log('Password:', credentials.password);
             return {
                 id:""
             };
