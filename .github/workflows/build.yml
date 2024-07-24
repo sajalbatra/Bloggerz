@@ -1,0 +1,19 @@
+name: Build on PR
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: node:20  # Use an official Node.js Docker image
+
+    steps:
+      - uses: actions/checkout
+      - name: Install Dependencies
+        run: npm install
+      - name: Run Build
+        run: npm run build
